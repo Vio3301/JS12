@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Sa primim numele de la client  -->
+    <input id="userName" type="text">
+    <button onclick="Save()">Save</button>
+    <script>
+    function Save(){
+        var input = document.getElementById('userName')
+        var userName = input.value
+
+        // salvam in Cookies - un loc unde pastram informatia [ATENTION Eror!!1]
+         document.cookie = `userName=${userName}; expires=Thu, 1 Ian 2020 12:00:00 UTC;`
+        // salvam in LocalStorage
+         localStorage.setItem("userName", userName)
+        // salvam in SessionStorage
+         sessionStorage.setItem("userName", userName)
+         // reloud - F5
+         location.reload()
+   }     
+
+    function loud(){
+        var username = localStorage.getItem('userName')
+        if(username != null){
+         var input = document.getElementById('userName')
+         var button = document.getElementsByTagName('button')[0]
+
+         document.body.removeChild(input)
+         document.body.removeChild(button)
+         //// creem h1
+         var h1 = document.createElement('h1')
+         h1.innerText =  `Hello ${username}` 
+         document.body.appendChild(h1)
+         // creem button
+         var but = document.createElement("button")
+         but.innerText = `For get me!`
+         document.body.appendChild(but)
+
+         but.onclick=forget
+        }
+
+    }                                             ////JASON////
+                                            //// de citit INPORTANT/////
+                                            //converteaza in text si inapoi in masiv sau obiect.....
+    function forget(){
+        localStorage.removeItem("userName")
+        location.reload()
+    }
+    window.onload = loud
+    </script>
+</body>
+</html>

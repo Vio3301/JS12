@@ -1,0 +1,24 @@
+Web Storage API (Browser) - persistance
+*temporary Storage
+*speed+
+*usability
+*offline
+*cache
+*indetification
+
+
+-Cookie (4k) [server /client] NO SENSITIVE info (pasword...)!!! + Expires
+- LocalStorage (50mb+) [client]   - forever
+- sessionstorage (50mb+) [client]  - session (window close)
+   * -> string (when saving / loading)
+    * size
+    * acces
+    * .toString(), JSON.strigify() , JSON.parse()
+
+- Application / Cache
+- CacheStorage
+
+
+-Indexed DB
+- Web SQL
+-------------------------------------------------
